@@ -23,6 +23,9 @@ class LinkedList
   def unshift(object)
     if @first_element.nil?
       @first_element = Element.new(object, nil)
+    else
+      old_first_element = @first_element
+      @first_element = Element.new(object, old_first_element)
     end
     self
   end
