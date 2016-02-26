@@ -11,4 +11,20 @@ describe LinkedList do
       end
     end
   end
+  describe "#unshift" do
+    before do
+      @linked_list = LinkedList.new
+    end
+    context "empty" do
+      it "set first object" do
+        object = Object.new
+        @linked_list.unshift(object)
+        expect(@linked_list.first).to eq object
+      end
+      it "returns self" do
+        object = Object.new
+        expect(@linked_list.unshift(object)).to eq @linked_list
+      end
+    end
+  end
 end
