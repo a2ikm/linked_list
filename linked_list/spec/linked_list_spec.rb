@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe LinkedList do
-  it 'has a version number' do
-    expect(LinkedList::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe "#first" do
+    before do
+      @linked_list = LinkedList.new
+    end
+    context "empty" do
+      it "returns nil" do
+        expect(@linked_list.first).to be_nil
+      end
+    end
   end
 end
