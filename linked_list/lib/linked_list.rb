@@ -44,6 +44,16 @@ class LinkedList
     self
   end
 
+  def each
+    element = @first_element
+    loop do
+      break if element.nil?
+      yield(element.object) if block_given?
+      element = element.next_element
+    end
+    self
+  end
+
   private
 
   def last_element

@@ -83,4 +83,23 @@ describe LinkedList do
       end
     end
   end
+  describe "#each" do
+    before do
+      @linked_list = LinkedList.new
+      @object1 = Object.new
+      @linked_list.push(@object1)
+      @object2 = Object.new
+      @linked_list.push(@object2)
+    end
+    it "runs the block on each object" do
+      array = []
+      @linked_list.each do |object|
+        array << object
+      end
+      expect(array).to eq [@object1, @object2]
+    end
+    it "returns self" do
+      expect(@linked_list.each { |obj| }).to eq @linked_list
+    end
+  end
 end
