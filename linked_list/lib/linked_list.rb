@@ -29,4 +29,11 @@ class LinkedList
     end
     self
   end
+
+  def push(object)
+    if @first_element.nil?
+      @first_element = Element.new(object, nil)
+    end
+    self
+  end
 end
