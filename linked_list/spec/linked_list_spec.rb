@@ -11,6 +11,16 @@ describe LinkedList do
       end
     end
   end
+  describe "#last" do
+    before do
+      @linked_list = LinkedList.new
+    end
+    context "empty" do
+      it "returns nil" do
+        expect(@linked_list.last).to be_nil
+      end
+    end
+  end
   describe "#unshift" do
     before do
       @linked_list = LinkedList.new

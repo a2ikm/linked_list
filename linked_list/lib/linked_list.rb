@@ -20,6 +20,11 @@ class LinkedList
     @first_element.object
   end
 
+  def last
+    return nil if @first_element.nil?
+    last_element.object
+  end
+
   def unshift(object)
     if @first_element.nil?
       @first_element = Element.new(object, nil)
@@ -35,5 +40,19 @@ class LinkedList
       @first_element = Element.new(object, nil)
     end
     self
+  end
+
+  private
+
+  def last_element
+    return nil if @first_element.nil?
+
+    element = @first_element
+    loop do
+      break if element.next_element.nil?
+      element = element.next_element
+    end
+
+    element
   end
 end
