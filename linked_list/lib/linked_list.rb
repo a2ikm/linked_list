@@ -15,6 +15,10 @@ class LinkedList
     @first_element = nil
   end
 
+  def empty?
+    @first_element.nil?
+  end
+
   def first
     return nil if @first_element.nil?
     @first_element.object

@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe LinkedList do
+  describe "#empty?" do
+    before do
+      @linked_list = LinkedList.new
+    end
+    it "returns true if empty" do
+      expect(@linked_list.empty?).to eq true
+    end
+    it "returns false if having any objects" do
+      @linked_list.unshift(Object.new)
+      expect(@linked_list.empty?).to eq false
+    end
+  end
   describe "#first" do
     before do
       @linked_list = LinkedList.new
