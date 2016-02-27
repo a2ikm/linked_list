@@ -38,6 +38,8 @@ class LinkedList
   def push(object)
     if @first_element.nil?
       @first_element = Element.new(object, nil)
+    else
+      last_element.next_element = Element.new(object, nil)
     end
     self
   end

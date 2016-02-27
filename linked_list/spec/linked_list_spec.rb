@@ -67,5 +67,20 @@ describe LinkedList do
         expect(@linked_list.push(object)).to eq @linked_list
       end
     end
+    context "has objects" do
+      before do
+        @initial_object = Object.new
+        @linked_list.push(@initial_object)
+      end
+      it "set last object" do
+        object = Object.new
+        @linked_list.push(object)
+        expect(@linked_list.last).to eq object
+      end
+      it "returns self" do
+        object = Object.new
+        expect(@linked_list.push(object)).to eq @linked_list
+      end
+    end
   end
 end
