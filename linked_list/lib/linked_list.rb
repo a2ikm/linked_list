@@ -48,6 +48,29 @@ class LinkedList
     self
   end
 
+  def delete(object)
+    deleted = nil
+    if @first_element.nil?
+      # do nothing
+    elsif @first_element.object == object
+      deleted = @first_element.object
+      @first_element = @first_element.next_element
+    else
+      prev_element = @first_element
+      loop do
+        element = prev_element.next_element
+        break if element.nil?
+
+        if element.object == object
+          deleted = element.object
+          prev_element.next_element = element.next_element
+          break
+        end
+      end
+    end
+    deleted
+  end
+
   def each
     element = @first_element
     loop do
