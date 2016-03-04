@@ -51,8 +51,7 @@ describe HashTable do
         array = []
         @hash_table.each { |k, v| array << [k, v] }
         expect(array.size).to eq 2
-        expect(array).to be_any { |item| item == ["key1", "value1"] }
-        expect(array).to be_any { |item| item == ["key2", "value2"] }
+        expect(array).to eq [["key1", "value1"], ["key2", "value2"]]
       end
       it "returns self" do
         expect(@hash_table.each { |k, v| }).to eq @hash_table

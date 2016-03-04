@@ -8,6 +8,7 @@ class HashTable
     @bins = Array.new(BIN_SIZE) do
       LinkedList.new
     end
+    @keys = LinkedList.new
   end
 
   def set(key, value)
@@ -22,6 +23,7 @@ class HashTable
     end
 
     bin.unshift([key, value])
+    @keys.push(key)
     self
   end
 
@@ -39,10 +41,9 @@ class HashTable
   end
 
   def each
-    @bins.each do |bin|
-      bin.each do |pair|
-        yield pair[0], pair[1]
-      end
+    @keys.each do |key|
+      value = get(key)
+      yield key, value
     end
     self
   end
