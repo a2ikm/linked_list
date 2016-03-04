@@ -173,16 +173,29 @@ describe LinkedList do
       @linked_list.push(@object1)
       @object2 = Object.new
       @linked_list.push(@object2)
+      @object3 = Object.new
+      @linked_list.push(@object3)
     end
     it "runs the block on each object" do
       array = []
       @linked_list.each do |object|
         array << object
       end
-      expect(array).to eq [@object1, @object2]
+      expect(array).to eq [@object1, @object2, @object3]
     end
     it "returns self" do
       expect(@linked_list.each { |obj| }).to eq @linked_list
+    end
+    it "works with delete in loop" do
+      array = []
+      @linked_list.each do |object|
+        if object == @object2
+          @linked_list.delete(object)
+        else
+          array << object
+        end
+      end
+      expect(array).to eq [@object1, @object3]
     end
   end
 end
