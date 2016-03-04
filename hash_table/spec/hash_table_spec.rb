@@ -60,7 +60,7 @@ describe HashTable do
   end
   describe "#each" do
     context "empty" do
-      it "do nothins" do
+      it "does nothing" do
         array = []
         @hash_table.each { |k, v| array << [k, v] }
         expect(array).to be_empty
