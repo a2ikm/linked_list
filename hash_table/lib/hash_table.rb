@@ -40,6 +40,22 @@ class HashTable
     nil
   end
 
+  def delete(key)
+    index = key.hash % BIN_SIZE
+    bin = @bins[index]
+
+    bin.each do |pair|
+      if pair[0] == key
+        value = pair[1]
+        bin.delete(pair)
+        @keys.delete(key)
+        return value
+      end
+    end
+
+    nil
+  end
+
   def each
     @keys.each do |key|
       value = get(key)
