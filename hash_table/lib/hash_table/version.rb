@@ -1,3 +1,3 @@
-module HashTable
+class HashTable
   VERSION = "0.1.0"
 end
